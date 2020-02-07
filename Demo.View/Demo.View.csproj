@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8713BB6C-457A-4C63-A109-F85C491AF1B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Demo.View</RootNamespace>
+    <AssemblyName>Demo.View</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon_4Sg_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NAudio, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\LoadCommand.cs" />
+    <Compile Include="Commands\PlayerWindowCommand.cs" />
+    <Compile Include="Commands\PresetCommand.cs" />
+    <Compile Include="Commands\QuitCommand.cs" />
+    <Compile Include="Commands\SaveCommand.cs" />
+    <Compile Include="Commands\SettingsWindowCommand.cs" />
+    <Compile Include="Commands\Synth2WindowCommand.cs" />
+    <Compile Include="KBprops.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="ViewModels\PlayerViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Synth2ViewModel.cs" />
+    <Compile Include="Views\PlayerView.xaml.cs">
+      <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Synth2View.xaml.cs">
+      <DependentUpon>Synth2View.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\PlayerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Synth2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo\Demo.csproj">
+      <Project>{c515e8b7-ec17-4a6d-8da2-4f57737fd862}</Project>
+      <Name>Demo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Save.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Open.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Settings.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ADSR_Back.png" />
+    <Resource Include="Views\Images\ADSR_Border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\about.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\quit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\butt.png" />
+    <Resource Include="Views\Images\butt_md.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\butt_dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\check.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\backgroundV1.png" />
+    <Resource Include="Views\Images\synth2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\adsr.png" />
+    <Resource Include="Views\Images\panels\adsr2.png" />
+    <Resource Include="Views\Images\panels\BC.png" />
+    <Resource Include="Views\Images\panels\dist.png" />
+    <Resource Include="Views\Images\panels\eq.png" />
+    <Resource Include="Views\Images\panels\octave.png" />
+    <Resource Include="Views\Images\panels\trem.png" />
+    <Resource Include="Views\Images\panels\volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\octaveLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\adsrLabel.png" />
+    <Resource Include="Views\Images\panels\eqLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\synth2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\playerLabel.png" />
+    <Resource Include="Views\Images\panels\synth2Label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\volumeLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\tremLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\playerLabel2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\BCLabel.png" />
+    <Resource Include="Views\Images\panels\distLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\synth22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\osc1.png" />
+    <Resource Include="Views\Images\panels\osc2.png" />
+    <Resource Include="Views\Images\panels\osc3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\play.png" />
+    <Resource Include="Views\Images\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\song.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\guide.png" />
+    <Resource Include="Views\Images\keyBindings.png" />
+    <Resource Include="Views\Images\sets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\keyBindings2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\noiseIcon.png" />
+    <Resource Include="Views\Images\panels\sawtoothIcon.png" />
+    <Resource Include="Views\Images\panels\sineIcon.png" />
+    <Resource Include="Views\Images\panels\squareIcon.png" />
+    <Resource Include="Views\Images\panels\triangleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\robotIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\panels\playerLabel3.png" />
+    <Resource Include="Views\Images\panels\synth2Label3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\icon_4Sg_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon_4Sg_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Views\Images\logoSplash.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

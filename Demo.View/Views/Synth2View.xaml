@@ -1,0 +1,173 @@
+﻿<Window x:Class="Demo.View.Views.Synth2View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:demo="clr-namespace:Demo;assembly=Demo"
+        xmlns:local="clr-namespace:Demo.View.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        
+        Title="MY C#NTH - Monophonic 3x Osc Synth" Height="300" Width="450" KeyDown="Window_KeyDown" Loaded="Window_Loaded" KeyUp="Window_KeyUp" Closing="Window_Closing" MouseDown="Window_MouseDown" MouseUp="Window_MouseUp" ResizeMode="NoResize" Icon="./Images/icon_4Sg_icon.ico">
+
+    <Window.Resources>
+        <sys:String x:Key="testo">Hello, Window world!</sys:String>
+    </Window.Resources>
+    
+    <Window.Background>
+        <ImageBrush ImageSource=".\Images\synth22.png" Stretch="UniformToFill"/>        
+    </Window.Background>
+
+    <Grid Margin="0,0,0,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Margin="50,10,50,10" BorderBrush="Black" BorderThickness="2" CornerRadius="10,10,10,10" ToolTip="Oscillator 1">
+            <Border.Background>
+                <ImageBrush ImageSource=".\Images\panels\osc1.png" Opacity="{Binding Opacity}"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+               
+                <Grid VerticalAlignment="Center" Margin="70,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Width="160" Height="28" SelectedValue="{Binding Osc1Type}" ToolTip="Oscillator Wave Type">
+                        <demo:WaveTypeSynth2>Square</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Sin</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>White</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Pink</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>SawTooth</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Triangle</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Sweep</demo:WaveTypeSynth2>
+                    </ComboBox>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Slider Margin="5,5,0,0" Minimum="0.0" Focusable="False" Maximum="0.2" Width="130" Value="{Binding Osc1Gain}" ToolTip="Oscillator Volume"/>
+                        
+                    </StackPanel>
+                </Grid>
+
+
+                <Slider Margin="5,0,0,3" Orientation="Vertical" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Sweep End Frequency" 
+                        Minimum="20" Maximum="5000" Value="{Binding Osc1FreqEnd}" 
+                        AutoToolTipPlacement="BottomRight" 
+                        AutoToolTipPrecision="2"/>
+                <Slider Margin="10,0,0,3" Orientation="Vertical" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Sweep Length (seconds)" 
+                        Minimum="1" Maximum="6" Value="{Binding Osc1SweepLengthSecs}"   
+                        TickFrequency="1"
+                        Ticks="1,2,3,4,5,6"
+                        AutoToolTipPlacement="BottomRight" 
+                        AutoToolTipPrecision="2"/>
+                <Slider Margin="10,0,0,3" Orientation="Vertical" Minimum="1" Maximum="5" IsSnapToTickEnabled="True" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Oscillator Octave"
+                            TickFrequency="1"
+                            TickPlacement="Both"
+                            AutoToolTipPlacement="BottomRight" 
+                            AutoToolTipPrecision="2" 
+                            Ticks="1,2,3,4,5,6"
+                            Value="{Binding Osc1Octave}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Margin="50,10,50,10" BorderBrush="Black" BorderThickness="2" CornerRadius="10,10,10,10" ToolTip="Oscillator 2">
+            <Border.Background>
+                <ImageBrush ImageSource=".\Images\panels\osc2.png" Opacity="{Binding Opacity}"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+               
+                <Grid VerticalAlignment="Center" Margin="70,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Width="160" Height="28" SelectedValue="{Binding Osc2Type}" ToolTip="Oscillator Wave Type">
+                        <demo:WaveTypeSynth2>Square</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Sin</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>White</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Pink</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>SawTooth</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Triangle</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Sweep</demo:WaveTypeSynth2>
+                    </ComboBox>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Slider Margin="5,5,0,0" Focusable="False" Minimum="0.0" Maximum="0.2" Width="130" Value="{Binding Osc2Gain}" ToolTip="Oscillator Volume"/>
+                       
+                    </StackPanel>
+                </Grid>
+
+
+                <Slider Margin="5,0,0,3" Orientation="Vertical" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Sweep End Frequency"
+                        Minimum="20" Maximum="5000" Value="{Binding Osc2FreqEnd}"
+                        AutoToolTipPlacement="BottomRight" 
+                        AutoToolTipPrecision="2"/>
+                <Slider Margin="10,0,0,3" Orientation="Vertical" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Sweep Length (seconds)" 
+                        Minimum="1" Maximum="6" Value="{Binding Osc2SweepLengthSecs}"                        
+                        AutoToolTipPlacement="BottomRight" 
+                        AutoToolTipPrecision="2"
+                        TickFrequency="1"
+                        Ticks="1,2,3,4,5,6"/>
+                <Slider Margin="10,0,0,3" Orientation="Vertical" Minimum="1" Maximum="5" IsSnapToTickEnabled="True" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Oscillator Octave"
+                            TickFrequency="1"
+                            TickPlacement="Both"
+                            AutoToolTipPlacement="BottomRight" 
+                            AutoToolTipPrecision="2" 
+                            Ticks="1,2,3,4,5,6"
+                            Value="{Binding Osc2Octave}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Margin="50,10,50,10" BorderBrush="Black" BorderThickness="2" CornerRadius="10,10,10,10" ToolTip="Oscillator 3">
+            <Border.Background>
+                <ImageBrush ImageSource=".\Images\panels\osc3.png" Opacity="{Binding Opacity}"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+              
+                <Grid VerticalAlignment="Center" Margin="70,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Width="160" Height="28" SelectedValue="{Binding Osc3Type}" ToolTip="Oscillator Wave Type">
+                        <demo:WaveTypeSynth2>Square</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Sin</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>White</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Pink</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>SawTooth</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Triangle</demo:WaveTypeSynth2>
+                        <demo:WaveTypeSynth2>Sweep</demo:WaveTypeSynth2>
+                    </ComboBox>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Slider Margin="5,5,0,0" Focusable="False" Minimum="0.0" Maximum="0.2" Width="130" Value="{Binding Osc3Gain}" ToolTip="Oscillator Volume"/>
+                       
+                    </StackPanel>
+                </Grid>
+
+
+                <Slider Margin="5,0,0,3" Orientation="Vertical" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Sweep End Frequency"
+                        Minimum="20" Maximum="5000" Value="{Binding Osc3FreqEnd}"
+                        AutoToolTipPlacement="BottomRight" 
+                        AutoToolTipPrecision="2"/>
+                <Slider Margin="10,0,0,3" Orientation="Vertical" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Sweep Length (seconds)" 
+                        Minimum="1" Maximum="6" Value="{Binding Osc3SweepLengthSecs}"                        
+                        AutoToolTipPlacement="BottomRight" 
+                        AutoToolTipPrecision="2"
+                        TickFrequency="1"
+                        Ticks="1,2,3,4,5,6"/>
+                <Slider Margin="10,0,0,3" Orientation="Vertical" Minimum="1" Maximum="5" IsSnapToTickEnabled="True" Height="60" VerticalAlignment="Center" Focusable="False" ToolTip="Oscillator Octave"
+                            TickFrequency="1"
+                            TickPlacement="Both"
+                            AutoToolTipPlacement="BottomRight" 
+                            AutoToolTipPrecision="2" 
+                            Ticks="1,2,3,4,5,6"
+                            Value="{Binding Osc3Octave}"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+
+</Window>
